@@ -1,0 +1,18 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+supabase/.temp/
+supabase/.branches/
+private-runtime/
+research-notes/sources/*.source.html
+# Private research corpus and generated private seed; curate a separate contest repository.
+/research-notes/
+/supabase/seed.sql
+/dmqc_crystal_chamber_2026-07-22/
+/PLAN_A_APPROUVER.md
+/PLAN_ACCEPTE.md
+/PLAN_FINAL.md
+/data/
+/notebooks/kernel-metadata.json

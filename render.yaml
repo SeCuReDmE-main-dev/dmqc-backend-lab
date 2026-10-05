@@ -1,0 +1,16 @@
+# Preparation only: deploying this file creates an internet-facing service.
+services:
+  - type: web
+    name: dmqc-api-preparation
+    runtime: python
+    plan: free
+    region: ohio
+    autoDeployTrigger: "off"
+    buildCommand: pip install -r profiles/render-requirements.txt
+    startCommand: gunicorn dmqc_lab.render_app:application --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 30 --access-logfile -
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.7
+      - key: DMQC_API_TOKEN
+        generateValue: true
