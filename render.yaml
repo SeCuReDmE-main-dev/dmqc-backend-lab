@@ -3,7 +3,7 @@ services:
   - type: web
     name: dmqc-api-preparation
     runtime: python
-    plan: free
+    plan: 1c-2g
     region: ohio
     autoDeployTrigger: "off"
     buildCommand: pip install -r profiles/render-requirements.txt

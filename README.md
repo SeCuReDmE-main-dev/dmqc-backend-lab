@@ -35,7 +35,7 @@ The published tests contain ten cases. Additional private research tools and dat
 
 ## Render configuration
 
-render.yaml defines one Free Python web service in Ohio, without database, disk or worker. Automatic deployments are off; initial creation still deploys. The Blueprint generates a dedicated DMQC_API_TOKEN. Protected requests fail closed when authentication is not configured. Manual Web Service setup needs separate configuration of this dedicated token; it does not apply Blueprint environment generation automatically. Research-provider keys are not needed by this API.
+render.yaml defines one Python web service in Ohio on the 1c-2g plan (1 CPU, 2 GB RAM), selected at 25 USD/month in the dashboard on October 5, 2026. Database, disk and worker services are not provisioned. Automatic deployments are off; initial creation still deploys. The Blueprint generates a dedicated DMQC_API_TOKEN. Protected requests fail closed when authentication is not configured. Manual Web Service setup needs separate configuration of this dedicated token; it does not apply Blueprint environment generation automatically. Research-provider keys are not needed by the currently implemented API.
 
 Build command:
 
@@ -49,7 +49,7 @@ Start command:
 gunicorn dmqc_lab.render_app:application --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 30 --access-logfile -
 ```
 
-Health check path: /healthz. Free instances have idle suspension and resource limits, so this profile is for deployment verification. A remote service cannot reach a workstation database at 127.0.0.1.
+Health check path: /healthz. Compute and other usage are billable; promotional credits do not define a guaranteed shutdown date. Review usage before credits are exhausted. A remote service cannot reach a workstation database at 127.0.0.1.
 
 References: https://render.com/docs/blueprint-spec and https://render.com/docs/free.
 
